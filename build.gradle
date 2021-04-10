@@ -36,8 +36,8 @@ repositories {
 dependencies {
     compileOnly spigot()
     compileOnly lombok()
-    compileOnly files('C:\\Users\\user\\Desktop\\Other\\Server\\MALLYSmith\\server.jar')
-    implementation files('../MCPlugin-Framework/build/libs/MCPlugin-Framework-1.0-SNAPSHOT.jar')
+    compileOnly files('server.jar')
+    implementation files('MCPlugin-Framework.jar')
     implementation("com.google.protobuf:protobuf-java-util:3.13.0")
     implementation("io.grpc:grpc-protobuf:1.32.1")
     implementation("io.grpc:grpc-stub:1.32.1")
