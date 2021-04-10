@@ -9,29 +9,29 @@ service UserService {
 }
 
 message SignUpRequest {
-  string uuid = 1;
-  string nickName = 2;
-  string password = 3;
+    string uuid = 1;
+    string name = 2;
+    string password = 3;
 }
 
 message SignUpResponse {
-  string uuid = 1;
-  string nickName = 2;
+    string uuid = 1;
+    string name = 2;
 }
 
 message SignInRequest {
-  string password = 1;
+    string uuid = 1;
+    string password = 2;
 }
 
 message SignInResponse {
-  bool isLogin = 1;
-  string nickName = 2;
+    string name = 1;
 }
 
 message isExistsRequest {
-  string uuid = 1;
+    string uuid = 1;
 }
 
 message isExistsResponse {
-  bool exists = 1;
+    bool exists = 1;
 }

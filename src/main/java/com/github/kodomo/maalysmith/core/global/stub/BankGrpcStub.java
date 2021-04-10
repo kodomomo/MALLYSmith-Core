@@ -13,14 +13,12 @@ public final class BankGrpcStub {
     private final ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
     private final BankServiceGrpc.BankServiceBlockingStub bankStub = BankServiceGrpc.newBlockingStub(channel);
 
-    public Bank.DepositResponse deposit(String fromUuid, String toUuid, long money) {
-        Bank.DepositRequest request = Bank.DepositRequest.newBuilder()
-                .setFromUserId(fromUuid)
-                .setToUserId(toUuid)
-                .setMoney(money)
+    public Bank.OpenAccountResponse openAccount(String uuid) {
+        Bank.OpenAccountRequest request = Bank.OpenAccountRequest.newBuilder()
+                .setUserId(uuid)
                 .build();
 
-        return bankStub.deposit(request);
+        return bankStub.openAccount(request);
     }
 
     public Bank.GetAccountResponse getAccount(String uuid) {
@@ -29,6 +27,16 @@ public final class BankGrpcStub {
                 .build();
 
         return bankStub.getAccount(request);
+    }
+
+    public Bank.DepositResponse deposit(String fromUuid, String toUuid, long money) {
+        Bank.DepositRequest request = Bank.DepositRequest.newBuilder()
+                .setFromUserId(fromUuid)
+                .setToUserId(toUuid)
+                .setMoney(money)
+                .build();
+
+        return bankStub.deposit(request);
     }
 
 }

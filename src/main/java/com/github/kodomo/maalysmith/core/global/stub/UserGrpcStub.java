@@ -25,7 +25,7 @@ public class UserGrpcStub {
     public User.SignUpResponse signUp(String uuid, String name) {
         User.SignUpRequest request = User.SignUpRequest.newBuilder()
                 .setUuid(uuid)
-                .setNickName(name)
+                .setName(name)
                 .setPassword("")
                 .build();
 
@@ -33,6 +33,15 @@ public class UserGrpcStub {
             return userStub.signUp(request);
         }
         return null;
+    }
+
+    public User.SignInResponse signIn(String uuid, String password) {
+        User.SignInRequest request = User.SignInRequest.newBuilder()
+                .setUuid(uuid)
+                .setPassword(password)
+                .build();
+
+        return userStub.signIn(request);
     }
 
 }

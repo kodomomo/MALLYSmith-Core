@@ -1,7 +1,5 @@
 package com.github.kodomo.maalysmith.core.global.bean;
 
-import com.github.kodomo.maalysmith.core.global.stub.GrpcStub;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -39,12 +37,6 @@ public class BeanContainer {
 
     public void clearBeans() {
         System.out.println("Beans clearing...");
-        BEANS.values()
-                .forEach(o -> {
-                    if (Arrays.stream(o.getClass().getInterfaces()).anyMatch(aClass -> aClass == GrpcStub.class)) {
-                        ((GrpcStub) o).shutdownChannel();
-                    }
-                });
     }
 
 }
