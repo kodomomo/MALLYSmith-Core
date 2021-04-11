@@ -1,4 +1,4 @@
-package com.github.kodomo.maalysmith.core.domain.bank.command;
+package com.github.kodomo.maalysmith.core.domain.economy.command;
 
 import com.github.kodomo.maalysmith.core.MALLYSmithCore;
 import com.github.kodomo.maalysmith.core.global.stub.BankGrpcStub;
@@ -19,5 +19,4 @@ public class MoneyCommand {
         Bank.GetAccountResponse response = bankGrpcStub.getAccount(uuid);
         player.sendMessage("잔고: " + response.getMoney());
     }
-
 }
