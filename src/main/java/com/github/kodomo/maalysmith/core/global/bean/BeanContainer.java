@@ -31,12 +31,9 @@ public class BeanContainer {
         return tClass.cast(BEANS.get(tClass));
     }
 
-    public void test() {
-        System.out.println(BEANS);
-    }
-
     public void clearBeans() {
         System.out.println("Beans clearing...");
+        BEANS.clear();
     }
 
 }

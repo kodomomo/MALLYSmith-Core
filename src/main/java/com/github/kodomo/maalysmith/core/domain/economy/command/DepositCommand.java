@@ -30,7 +30,7 @@ public class DepositCommand {
 
     private Boolean checkCommandLength(Player player, String[] commands) {
         if (commands.length != 2) {
-            player.sendMessage("잘못된 명령어 입니다. 명령어를 다시 확인해주세요.");
+            player.sendMessage("잘못된 명령어 입니다. 명령어를 다시 확인해주세요");
             return false;
         } return true;
     }
