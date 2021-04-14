@@ -1,5 +1,6 @@
 package com.github.kodomo.maalysmith.core;
 
+import com.github.kodomo.maalysmith.core.domain.user.temp.UserLoginStatus;
 import com.github.kodomo.maalysmith.core.global.bean.BeanContainer;
 import com.github.kodomo.maalysmith.core.global.stub.BankGrpcStub;
 import com.github.kodomo.maalysmith.core.global.stub.UserGrpcStub;
@@ -23,10 +24,13 @@ public class MALLYSmithCore extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        UserLoginStatus.kickUnLoginUsers();
         beanContainer.clearBeans();
+        Runtime.getRuntime().gc();
     }
 
     private void setup() {
+        UserLoginStatus.registerUsers();
         beanContainer.registerBean(UserGrpcStub.class);
         beanContainer.registerBean(BankGrpcStub.class);
     }

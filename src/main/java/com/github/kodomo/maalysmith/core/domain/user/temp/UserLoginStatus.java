@@ -1,5 +1,6 @@
 package com.github.kodomo.maalysmith.core.domain.user.temp;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -28,4 +29,17 @@ public class UserLoginStatus {
     public static void resetStatus(Player player) {
         status.remove(player);
     }
+
+    public static void registerUsers() {
+        Bukkit.getServer().getOnlinePlayers().stream()
+                .filter(player -> !status.containsKey(player))
+                .forEach(player -> setPlayerStatus(player, UserStatus.LOGIN));
+    }
+
+    public static void kickUnLoginUsers() {
+        status.keySet().stream()
+                .filter(player -> getStatus(player) != UserStatus.LOGIN)
+                .forEach(player -> player.kickPlayer("서버 리로드 중입니다. 잠시 후 접속 해주세요"));
+    }
+
 }
