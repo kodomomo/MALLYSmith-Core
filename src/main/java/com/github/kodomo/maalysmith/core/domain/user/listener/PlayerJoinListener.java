@@ -1,6 +1,8 @@
-package com.github.kodomo.maalysmith.core.domain.government.listener;
+package com.github.kodomo.maalysmith.core.domain.user.listener;
 
 import com.github.kodomo.maalysmith.core.MALLYSmithCore;
+import com.github.kodomo.maalysmith.core.domain.user.temp.UserLoginStatus;
+import com.github.kodomo.maalysmith.core.domain.user.temp.UserStatus;
 import com.github.kodomo.maalysmith.core.global.stub.UserGrpcStub;
 import com.github.leaguelugas.mcpluginframework.register.Executor;
 import com.github.leaguelugas.mcpluginframework.register.listener.Listener;
@@ -16,20 +18,16 @@ public class PlayerJoinListener {
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         String uuid = player.getUniqueId().toString();
+
+        event.setJoinMessage(null);
         if (userGrpcStub.isExistsUser(uuid)) {
             player.sendMessage("등록된 유저입니다");
+            player.sendMessage("비밀번호를 입력하세요");
+            UserLoginStatus.setPlayerStatus(player, UserStatus.UNLOGIN);
         } else {
-            player.sendMessage("등록되지 않은 유저입니다");
-            if (signUpUser(player)) {
-                player.sendMessage("등록되었습니다");
-            }
+            player.sendMessage("첫 방문을 환영합니다.");
+            player.sendMessage("사용하실 비밀번호를 입력해주세요");
+            UserLoginStatus.setPlayerStatus(player, UserStatus.SIGNUP);
         }
     }
-
-    private boolean signUpUser(Player player) {
-        String uuid = player.getUniqueId().toString();
-        String name = player.getName();
-        return userGrpcStub.signUp(uuid, name) != null;
-    }
-
 }

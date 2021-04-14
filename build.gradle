@@ -25,7 +25,7 @@ shadowJar {
     archiveFileName = 'MALLYSmith-Core.jar'
     copy {
         from getArchiveFile()
-        into 'C:\\Users\\user\\Desktop\\Other\\Server\\MALLYSmith\\plugins'
+        into 'C:\\Users\\Miu\\OneDrive\\바탕 화면\\mcServer\\plugins'
     }
 }
 

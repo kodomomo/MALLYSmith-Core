@@ -19,11 +19,11 @@ public class UserGrpcStub {
         return response.getExists();
     }
 
-    public User.SignUpResponse signUp(String uuid, String name) {
+    public User.SignUpResponse signUp(String uuid, String name, String password) {
         User.SignUpRequest request = User.SignUpRequest.newBuilder()
                 .setUuid(uuid)
                 .setName(name)
-                .setPassword("")
+                .setPassword(password)
                 .build();
 
         if (!isExistsUser(uuid)) {
