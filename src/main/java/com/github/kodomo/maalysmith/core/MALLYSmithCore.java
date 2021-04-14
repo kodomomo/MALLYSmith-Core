@@ -6,6 +6,7 @@ import com.github.kodomo.maalysmith.core.global.stub.BankGrpcStub;
 import com.github.kodomo.maalysmith.core.global.stub.UserGrpcStub;
 import com.github.leaguelugas.mcpluginframework.MCPluginApplication;
 import kr.entree.spigradle.annotations.PluginMain;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @PluginMain
@@ -20,6 +21,7 @@ public class MALLYSmithCore extends JavaPlugin {
         setup();
         MCPluginApplication<MALLYSmithCore> application = new MCPluginApplication<>(this);
         application.autoConfiguration();
+        application.createConfigFile("config.yml");
     }
 
     @Override
@@ -41,6 +43,10 @@ public class MALLYSmithCore extends JavaPlugin {
 
     public <T> T getBean(Class<T> tClass) {
         return beanContainer.getBean(tClass);
+    }
+
+    public void saveConfig() {
+        super.saveConfig();
     }
 
 }
