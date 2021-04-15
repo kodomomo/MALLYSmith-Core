@@ -12,10 +12,13 @@ import org.bukkit.entity.Player;
 public class SpawnCommand {
 
     @Executor
-    public void spawn(MALLYSmithCore main, Player player) {
+    public void spawn(MALLYSmithCore main, Player player, String[] args) {
         FileConfiguration config = main.getConfig();
-        player.teleport((Location) config.get("spawn"));
-        player.sendMessage("순간이동 띠롱");
+        if (args.length == 1) {
+            if (config.get("spawn." + args[0]) != null) {
+                player.teleport((Location) config.get("spawn." + args[0]));
+                player.sendMessage("순간이동 띠롱");
+            }
+        }
     }
-
 }
