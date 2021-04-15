@@ -8,7 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-@Command(value = "spawn", type = CommandType.ONLY_PLAYER, permission = "*")
+@Command(value = "spawn", permission = "*", type = CommandType.ONLY_PLAYER)
 public class SpawnCommand {
 
     @Executor
