@@ -14,7 +14,7 @@ public class PlayerMoveListener {
     public void onMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
         if (UserLoginStatus.getStatus(player) != UserStatus.LOGIN) {
-            event.setCancelled(true);
+//            event.setCancelled(true);
         }
     }
 }

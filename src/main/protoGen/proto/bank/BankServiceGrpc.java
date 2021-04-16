@@ -1,24 +1,11 @@
 package proto.bank;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.32.1)",
+    value = "by gRPC proto compiler (version 1.37.0)",
     comments = "Source: bank.proto")
 public final class BankServiceGrpc {
 
@@ -172,42 +159,42 @@ public final class BankServiceGrpc {
      */
     public void openAccount(proto.bank.Bank.OpenAccountRequest request,
         io.grpc.stub.StreamObserver<proto.bank.Bank.OpenAccountResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getOpenAccountMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getOpenAccountMethod(), responseObserver);
     }
 
     /**
      */
     public void getAccount(proto.bank.Bank.GetAccountRequest request,
         io.grpc.stub.StreamObserver<proto.bank.Bank.GetAccountResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getGetAccountMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAccountMethod(), responseObserver);
     }
 
     /**
      */
     public void deposit(proto.bank.Bank.DepositRequest request,
         io.grpc.stub.StreamObserver<proto.bank.Bank.DepositResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getDepositMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDepositMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getOpenAccountMethod(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 proto.bank.Bank.OpenAccountRequest,
                 proto.bank.Bank.OpenAccountResponse>(
                   this, METHODID_OPEN_ACCOUNT)))
           .addMethod(
             getGetAccountMethod(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 proto.bank.Bank.GetAccountRequest,
                 proto.bank.Bank.GetAccountResponse>(
                   this, METHODID_GET_ACCOUNT)))
           .addMethod(
             getDepositMethod(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 proto.bank.Bank.DepositRequest,
                 proto.bank.Bank.DepositResponse>(
@@ -234,7 +221,7 @@ public final class BankServiceGrpc {
      */
     public void openAccount(proto.bank.Bank.OpenAccountRequest request,
         io.grpc.stub.StreamObserver<proto.bank.Bank.OpenAccountResponse> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getOpenAccountMethod(), getCallOptions()), request, responseObserver);
     }
 
@@ -242,7 +229,7 @@ public final class BankServiceGrpc {
      */
     public void getAccount(proto.bank.Bank.GetAccountRequest request,
         io.grpc.stub.StreamObserver<proto.bank.Bank.GetAccountResponse> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetAccountMethod(), getCallOptions()), request, responseObserver);
     }
 
@@ -250,7 +237,7 @@ public final class BankServiceGrpc {
      */
     public void deposit(proto.bank.Bank.DepositRequest request,
         io.grpc.stub.StreamObserver<proto.bank.Bank.DepositResponse> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDepositMethod(), getCallOptions()), request, responseObserver);
     }
   }
@@ -272,21 +259,21 @@ public final class BankServiceGrpc {
     /**
      */
     public proto.bank.Bank.OpenAccountResponse openAccount(proto.bank.Bank.OpenAccountRequest request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getOpenAccountMethod(), getCallOptions(), request);
     }
 
     /**
      */
     public proto.bank.Bank.GetAccountResponse getAccount(proto.bank.Bank.GetAccountRequest request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAccountMethod(), getCallOptions(), request);
     }
 
     /**
      */
     public proto.bank.Bank.DepositResponse deposit(proto.bank.Bank.DepositRequest request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDepositMethod(), getCallOptions(), request);
     }
   }
@@ -309,7 +296,7 @@ public final class BankServiceGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.bank.Bank.OpenAccountResponse> openAccount(
         proto.bank.Bank.OpenAccountRequest request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getOpenAccountMethod(), getCallOptions()), request);
     }
 
@@ -317,7 +304,7 @@ public final class BankServiceGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.bank.Bank.GetAccountResponse> getAccount(
         proto.bank.Bank.GetAccountRequest request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetAccountMethod(), getCallOptions()), request);
     }
 
@@ -325,7 +312,7 @@ public final class BankServiceGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.bank.Bank.DepositResponse> deposit(
         proto.bank.Bank.DepositRequest request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDepositMethod(), getCallOptions()), request);
     }
   }

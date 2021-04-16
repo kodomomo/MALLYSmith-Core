@@ -1,24 +1,11 @@
 package proto.government;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.32.1)",
+    value = "by gRPC proto compiler (version 1.37.0)",
     comments = "Source: government.proto")
 public final class GovernmentServiceGrpc {
 
@@ -110,14 +97,14 @@ public final class GovernmentServiceGrpc {
      */
     public void getBasicIncome(proto.government.Government.GetBasicIncomeRequest request,
         io.grpc.stub.StreamObserver<proto.government.Government.GetBasicIncomeResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getGetBasicIncomeMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetBasicIncomeMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getGetBasicIncomeMethod(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 proto.government.Government.GetBasicIncomeRequest,
                 proto.government.Government.GetBasicIncomeResponse>(
@@ -144,7 +131,7 @@ public final class GovernmentServiceGrpc {
      */
     public void getBasicIncome(proto.government.Government.GetBasicIncomeRequest request,
         io.grpc.stub.StreamObserver<proto.government.Government.GetBasicIncomeResponse> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetBasicIncomeMethod(), getCallOptions()), request, responseObserver);
     }
   }
@@ -166,7 +153,7 @@ public final class GovernmentServiceGrpc {
     /**
      */
     public proto.government.Government.GetBasicIncomeResponse getBasicIncome(proto.government.Government.GetBasicIncomeRequest request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetBasicIncomeMethod(), getCallOptions(), request);
     }
   }
@@ -189,7 +176,7 @@ public final class GovernmentServiceGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.government.Government.GetBasicIncomeResponse> getBasicIncome(
         proto.government.Government.GetBasicIncomeRequest request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetBasicIncomeMethod(), getCallOptions()), request);
     }
   }

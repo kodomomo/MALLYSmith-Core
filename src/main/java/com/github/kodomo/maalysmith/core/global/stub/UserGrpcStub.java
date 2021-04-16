@@ -5,7 +5,7 @@ import io.grpc.ManagedChannelBuilder;
 import proto.user.User;
 import proto.user.UserServiceGrpc;
 
-public class UserGrpcStub {
+public class UserGrpcStub implements GrpcStub {
 
     private static final String host = "25.112.155.55";
     private static final int port = 8000;
@@ -42,6 +42,11 @@ public class UserGrpcStub {
                 .build();
 
         return userStub.signIn(request);
+    }
+
+    @Override
+    public void closeChanel() {
+        channel.shutdownNow();
     }
 
 }

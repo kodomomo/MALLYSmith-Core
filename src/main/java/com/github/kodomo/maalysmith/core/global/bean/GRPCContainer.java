@@ -1,16 +1,18 @@
 package com.github.kodomo.maalysmith.core.global.bean;
 
+import com.github.kodomo.maalysmith.core.global.stub.GrpcStub;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BeanContainer {
+public class GRPCContainer {
 
-    private final Map<Class<?>, Object> BEANS = new HashMap<>();
+    private final Map<Class<?>, GrpcStub> STUBS = new HashMap<>();
 
-    public <T> T registerBean(Class<T> tClass, Object... params) {
+    public <T extends GrpcStub> void registerStub(Class<T> tClass, Object... params) {
         try {
             Constructor<T> constructor = tClass.getConstructor(
                     Arrays.stream(params)
@@ -19,21 +21,14 @@ public class BeanContainer {
             );
             constructor.setAccessible(true);
             T instance = constructor.newInstance(params);
-            BEANS.put(tClass, instance);
-            return instance;
+            STUBS.put(tClass, instance);
         } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
-            return null;
         }
     }
 
-    public <T> T getBean(Class<T> tClass) {
-        return tClass.cast(BEANS.get(tClass));
-    }
-
-    public void clearBeans() {
-        System.out.println("Beans clearing...");
-        BEANS.clear();
+    public <T extends GrpcStub> T getBean(Class<T> tClass) {
+        return tClass.cast(STUBS.get(tClass));
     }
 
 }

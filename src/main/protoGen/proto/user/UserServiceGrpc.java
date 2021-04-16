@@ -1,24 +1,11 @@
 package proto.user;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.32.1)",
+    value = "by gRPC proto compiler (version 1.37.0)",
     comments = "Source: user.proto")
 public final class UserServiceGrpc {
 
@@ -172,42 +159,42 @@ public final class UserServiceGrpc {
      */
     public void signUp(proto.user.User.SignUpRequest request,
         io.grpc.stub.StreamObserver<proto.user.User.SignUpResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getSignUpMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignUpMethod(), responseObserver);
     }
 
     /**
      */
     public void signIn(proto.user.User.SignInRequest request,
         io.grpc.stub.StreamObserver<proto.user.User.SignInResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getSignInMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignInMethod(), responseObserver);
     }
 
     /**
      */
     public void isExists(proto.user.User.isExistsRequest request,
         io.grpc.stub.StreamObserver<proto.user.User.isExistsResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getIsExistsMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsExistsMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             getSignUpMethod(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 proto.user.User.SignUpRequest,
                 proto.user.User.SignUpResponse>(
                   this, METHODID_SIGN_UP)))
           .addMethod(
             getSignInMethod(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 proto.user.User.SignInRequest,
                 proto.user.User.SignInResponse>(
                   this, METHODID_SIGN_IN)))
           .addMethod(
             getIsExistsMethod(),
-            asyncUnaryCall(
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 proto.user.User.isExistsRequest,
                 proto.user.User.isExistsResponse>(
@@ -234,7 +221,7 @@ public final class UserServiceGrpc {
      */
     public void signUp(proto.user.User.SignUpRequest request,
         io.grpc.stub.StreamObserver<proto.user.User.SignUpResponse> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSignUpMethod(), getCallOptions()), request, responseObserver);
     }
 
@@ -242,7 +229,7 @@ public final class UserServiceGrpc {
      */
     public void signIn(proto.user.User.SignInRequest request,
         io.grpc.stub.StreamObserver<proto.user.User.SignInResponse> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSignInMethod(), getCallOptions()), request, responseObserver);
     }
 
@@ -250,7 +237,7 @@ public final class UserServiceGrpc {
      */
     public void isExists(proto.user.User.isExistsRequest request,
         io.grpc.stub.StreamObserver<proto.user.User.isExistsResponse> responseObserver) {
-      asyncUnaryCall(
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getIsExistsMethod(), getCallOptions()), request, responseObserver);
     }
   }
@@ -272,21 +259,21 @@ public final class UserServiceGrpc {
     /**
      */
     public proto.user.User.SignUpResponse signUp(proto.user.User.SignUpRequest request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSignUpMethod(), getCallOptions(), request);
     }
 
     /**
      */
     public proto.user.User.SignInResponse signIn(proto.user.User.SignInRequest request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSignInMethod(), getCallOptions(), request);
     }
 
     /**
      */
     public proto.user.User.isExistsResponse isExists(proto.user.User.isExistsRequest request) {
-      return blockingUnaryCall(
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getIsExistsMethod(), getCallOptions(), request);
     }
   }
@@ -309,7 +296,7 @@ public final class UserServiceGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.user.User.SignUpResponse> signUp(
         proto.user.User.SignUpRequest request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSignUpMethod(), getCallOptions()), request);
     }
 
@@ -317,7 +304,7 @@ public final class UserServiceGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.user.User.SignInResponse> signIn(
         proto.user.User.SignInRequest request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSignInMethod(), getCallOptions()), request);
     }
 
@@ -325,7 +312,7 @@ public final class UserServiceGrpc {
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.user.User.isExistsResponse> isExists(
         proto.user.User.isExistsRequest request) {
-      return futureUnaryCall(
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getIsExistsMethod(), getCallOptions()), request);
     }
   }
